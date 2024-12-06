@@ -13,8 +13,8 @@ WORKDIR /source
 RUN dotnet publish -c release -o /app --no-restore
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/runtime:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
 COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "vevor2mqtt.dll"]
+ENTRYPOINT ["dotnet", "vevorws2mqtt.dll"]
 

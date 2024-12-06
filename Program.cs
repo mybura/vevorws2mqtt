@@ -1,4 +1,5 @@
 using Serilog;
+using System.Net;
 using vevorws2mqtt.Drivers;
 using vevorws2mqtt.Services.Consumed.Mqtt;
 
@@ -72,6 +73,11 @@ namespace vevorws2mqtt
             builder.Configuration.Sources.Clear();
             builder.Configuration.AddJsonFile("settings.json", optional: true, reloadOnChange: true);
             builder.Configuration.AddEnvironmentVariables();
+
+            builder.WebHost.ConfigureKestrel((context, serverOptions) =>
+            {
+                serverOptions.Listen(IPAddress.Any, 5087);  // Because this is where wunderground requests go to from the Vevor Weather station
+            });
 
             if (args is { Length: > 0 })
             {
