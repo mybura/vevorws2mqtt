@@ -14,6 +14,7 @@ RUN dotnet publish -c release -o /app --no-restore
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
+EXPOSE 5087
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["dotnet", "vevorws2mqtt.dll"]

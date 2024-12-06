@@ -12,9 +12,11 @@ To be run as a docker instance (tested on Linux host, Windows should work if you
 
 ### Required:
 
-1. Network traffic from YT60234 device forwarded to the docker machine.
-2. Server address of an MQTT broker (e.g. [mosquitto](https://mosquitto.org/)) requiring no credentials
-3. [Working Docker host](https://www.tutorialspoint.com/docker/docker_installation.htm)
+1. Network traffic from YT60234 device forwarded to the docker machine (e.g. DNS setup so the Vevor device will resolve http://rtupdate.wunderground.com traffic to the docker instance on port 80).
+2. YT60234 device setup to send updates to wunderground using the device ID named Local. Password is also Local.
+3. Docker instance with port 80 available and exposed on the host where redirected rtupdate.wunderground.com traffic is already forwarded to.
+4. Server address of an MQTT broker (e.g. [mosquitto](https://mosquitto.org/)) requiring no credentials
+5. [Working Docker host](https://www.tutorialspoint.com/docker/docker_installation.htm)
 
 ### Example:
 
@@ -22,7 +24,7 @@ To be run as a docker instance (tested on Linux host, Windows should work if you
 - Desired docker instance name = vevor2mqtt
 
 ```bash
-docker run --detach --env MqttServer=10.10.10.11 --env DeviceIds__0=Local --name vevor2mqtt mybura/vevor2mqtt:latest
+docker run --detach --env MqttServer=10.10.10.11 --env DeviceIds__0=Local -p 80:5087 --name vevor2mqtt mybura/vevor2mqtt:latest
 ```
 ## Notes
 
