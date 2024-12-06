@@ -1,0 +1,33 @@
+﻿namespace vevorws2mqtt.Drivers.YT60234
+{
+    public enum ETopic
+    {
+        HATempSensorConfig,
+        HADewPointTempSensorConfig,
+        HAHumiditySensorConfig,
+        HALightLevelSensorConfig,
+        HAWindDirectionSensorConfig,
+        HARainFallDailySensorConfig,
+        HASolarRadiationSensorConfig,
+        HARainFallHourlySensorConfig,
+        HAUVIndexSensorConfig,
+        HAWindSpeedSensorConfig,
+        HAWindSpeedGustSensorConfig,
+        HAPresureSensorConfig,
+        HALastUpdateSensorConfig,
+        GetState,
+        GetHumidity,
+        GetTemperature,
+        GetAtmosphericPressure,
+        GetLightLevel,
+        GetWindSpeed,
+        GetWindGust, 
+        GetUVIndex,
+        GetDewPoint,
+        GetWindDirection,
+        GetHourlyRainfall,
+        GetDailyRainfall,
+        GetLastUpdateDate,
+        GetSolarRadiation,
+    }
+}
