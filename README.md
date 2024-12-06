@@ -1,6 +1,6 @@
-# vevor2mqtt
+# vevorws2mqtt
 
-Bridge Vevor brand devices to MQTT. [Home Assistant](https://www.home-assistant.io) [MQTT integration](https://www.home-assistant.io/integrations/mqtt) automatically recognises the devices.
+Bridge Vevor brand weather station devices to MQTT. [Home Assistant](https://www.home-assistant.io) [MQTT integration](https://www.home-assistant.io/integrations/mqtt) automatically recognises the devices.
 
 Using Home Assistant UI, one can monitor the sensors exposed by the Vevor devices.
 
@@ -21,10 +21,10 @@ To be run as a docker instance (tested on Linux host, Windows should work if you
 ### Example:
 
 - MQTT server IP = 10.10.10.11
-- Desired docker instance name = vevor2mqtt
+- Desired docker instance name = vevorws2mqtt
 
 ```bash
-docker run --detach --env MqttServer=10.10.10.11 --env DeviceIds__0=Local -p 80:5087 --name vevor2mqtt mybura/vevor2mqtt:latest
+docker run --detach --env MqttServer=10.10.10.11 --env DeviceIds__0=Local -p 80:5087 --name vevorws2mqtt mybura/vevorws2mqtt:latest
 ```
 ## Notes
 
